@@ -1,23 +1,20 @@
-import crypto from 'crypto-js'
-import jwt from 'jsonwebtoken'
-import config from '../../../config'
-import { client } from "../../../lib/prisma/client"
+import { client } from '../../../lib/prisma/client';
 
 interface Params {
-  id: number
+  id: number;
 }
 
-export const findById = async ({id}: Params) =>  {
+export const findById = async ({ id }: Params) => {
   try {
     const user = await client.user.findUnique({
-      where: {id}
-    })
-    if(!user) {
-      return null
+      where: { id },
+    });
+    if (!user) {
+      return null;
     }
-    const {password, ...info} = user
-    return info
+    const { password, ...info } = user;
+    return info;
   } catch (error) {
-    throw error
+    throw new Error(error as string);
   }
-}
+};

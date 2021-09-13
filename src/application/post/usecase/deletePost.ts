@@ -1,9 +1,9 @@
-import { postRepository } from "../repository"
+import { postRepository } from '../repository';
 
 interface Params {
-  postId: number
+  postId: number;
 }
 
-export const deletePost = ({postId}: Params) =>  {
-  return postRepository().deletePost({postId})
-}
+export const deletePost = ({ postId }: Params) => {
+  return postRepository().deletePost({ postId });
+};
