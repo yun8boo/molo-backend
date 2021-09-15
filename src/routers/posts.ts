@@ -5,7 +5,7 @@ import {
   createPost,
   updatePost,
   deletePost,
-} from '../application/post/usecase/';
+} from '../application/post/usecase';
 import { verifyToken } from '../utils/jwt/verifyToken';
 
 const router = Router();
