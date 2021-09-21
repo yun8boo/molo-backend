@@ -25,7 +25,7 @@ export const login = async ({ email, password }: Params) => {
     );
     const originalText = bytes.toString(crypto.enc.Utf8);
 
-    if (password === originalText) {
+    if (password !== originalText) {
       return null;
     }
 
