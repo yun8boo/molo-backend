@@ -15,7 +15,7 @@ router.post('/signup', async (req, res) => {
       password: req.body.password,
     });
     if (!newUser) {
-      res.status(400).json('Already registered email.');
+      return res.status(400).json('Already registered email.');
     }
     res.status(201).json(newUser);
   } catch (error) {
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
       password: req.body.password,
     });
     if (!user) {
-      res.status(400).json('Failed');
+      return res.status(400).json('Failed');
     }
     res.status(201).json(user);
   } catch (error) {

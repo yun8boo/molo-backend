@@ -8,7 +8,7 @@ router.get('/', verifyToken, async (req, res) => {
   try {
     const user = await findById({ id: req.user.id });
     if (!user) {
-      res.status(404).json('no user');
+      return res.status(404).json('no user');
     }
     res.status(200).json(user);
   } catch (error) {
